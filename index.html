@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="src/styles.css" />  
+
+  </head>
+  <body>
+    <div class="container">
+        <div class="weather-app">
+          <form id="search-form">
+            <div class="row">
+              <div class="col-7">
+                <input
+                  type="search"
+                  id="search-text-input"
+                  placeholder=" Please type a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <button class="button btn-primary"
+                id="show-location-button">
+                  Current
+                </button>
+            </form>
+            <h1 id="city">Boston</h1>
+    <h2>Temperature</h2>
+    <span id="current-temp">18</span
+      ><span class="units"
+    <a id="Celsius" href="#">°C</a> |
+        <a id="Fahrenheid" href="#"> °F </a>
+    <br />
+    <div class="weather-info">
+      <p id="date">
+        Sat 9:00pm <br />
+        Cloudy
+    </div>
+    <div class="col-6">
+        <ul>
+          <li>Humidity:<span id="humidity">20>/span>%</li>
+
+            <li>Wind:  <span id="wind">6>/span> mph</li>
+<script src="src/index.js"></script>
+  </body>
+</html>
