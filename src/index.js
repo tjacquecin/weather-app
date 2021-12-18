@@ -14,12 +14,18 @@ let minute = now.getMinutes();
 Date.innerHTML = `${day} ${hour}:${minute}`;
 
 function displayWeatherCondition(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.main.wind;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    "http://openweathermap.org/img/wn/${response.data.weather[0].icon}10d@2x.png"
+  );
 }
 //Search for a city
 function searchCity(city) {
@@ -45,20 +51,20 @@ searchForm.addEventListener("submit", handleSubmit);
 //Change to Celsius
 function showCelsius(event) {
   event.preventDefault();
-  let celsius = document.querySelector("h2");
+  let celsius = document.querySelector("hcurrent-temp");
   celsius.innerHTML = "19";
 }
 let displaycelsius = document.querySelector("#Celsius");
 displaycelsius.addEventListener("click", showCelsius);
 
-//Change to Fahrenheid
-function showFahrenheid(event) {
+//Change to Fahrenheit
+function showFahrenheit(event) {
   event.preventDefault();
-  let fahrenheid = document.querySelector("h2");
-  fahrenheid.innerHTML = "66";
+  let fahrenheit = document.querySelector("current-temp");
+  fahrenheit.innerHTML = "66";
 }
-let displayfahrenheid = document.querySelector("#Fahrenheid");
-displayfahrenheid.addEventListener("click", showFahrenheid);
+let displayfahrenheit = document.querySelector("#Fahrenheit");
+displayfahrenheit.addEventListener("click", showFahrenheit);
 
 let showLocationButton = document.querySelector("#show-location-button");
 showLocationButton.addEventListener("click", showLocation);
