@@ -20,7 +20,7 @@ function displayWeatherCondition(response) {
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = response.data.main.wind;
+  document.querySelector("#wind").innerHTML = response.data.wind.speed;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -51,7 +51,7 @@ searchForm.addEventListener("submit", handleSubmit);
 //Change to Celsius
 function showCelsius(event) {
   event.preventDefault();
-  let celsius = document.querySelector("hcurrent-temp");
+  let celsius = document.querySelector("#current-temp");
   celsius.innerHTML = "19";
 }
 let displaycelsius = document.querySelector("#Celsius");
