@@ -60,7 +60,7 @@ displaycelsius.addEventListener("click", showCelsius);
 //Change to Fahrenheit
 function showFahrenheit(event) {
   event.preventDefault();
-  let fahrenheit = document.querySelector("current-temp");
+  let fahrenheit = document.querySelector("#current-temp");
   fahrenheit.innerHTML = "66";
 }
 let displayfahrenheit = document.querySelector("#Fahrenheit");
