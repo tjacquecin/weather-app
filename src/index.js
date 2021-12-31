@@ -42,6 +42,9 @@ function displayWeatherCondition(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+  fahrenheitTemperature = response.data.main.temp;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -50,7 +53,7 @@ function displayWeatherCondition(response) {
 //Search for a city
 function searchCity(city) {
   let apiKey = "3f2cf3b8e49f91e874d96ca20936b424";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?id=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(displayWeatherCondition);
 }
 
@@ -64,6 +67,7 @@ function showLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showLocation);
 }
+let celsiusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
@@ -73,6 +77,7 @@ function showCelsius(event) {
   event.preventDefault();
   let celsius = document.querySelector("#current-temp");
   celsius.innerHTML = "19";
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let displaycelsius = document.querySelector("#Celsius");
 displaycelsius.addEventListener("click", showCelsius);
@@ -80,6 +85,10 @@ displaycelsius.addEventListener("click", showCelsius);
 //Change to Fahrenheit
 function showFahrenheit(event) {
   event.preventDefault();
+  let displayfahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
   let fahrenheit = document.querySelector("#current-temp");
   fahrenheit.innerHTML = "66";
 }
@@ -88,6 +97,12 @@ displayfahrenheit.addEventListener("click", showFahrenheit);
 
 let showLocationButton = document.querySelector("#show-location-button");
 showLocationButton.addEventListener("click", showLocation);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayfahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displaycelsiusTemperature);
 
 searchCity("Boston");
 displayForecast();
