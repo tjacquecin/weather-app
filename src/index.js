@@ -54,15 +54,13 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-//Search for a city
+
 function searchCity(city) {
-  // city = "Boston"
   city = 4930956;
   let apiKey = "3f2cf3b8e49f91e874d96ca20936b424";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?id=${city}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://pro.openweathermap.org/data/2.5/forecast/climate?id=${city}&appid=${apiKey}`;
   axios.get(apiURL).then(displayWeatherCondition);
 }
-
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-text-input").value;
