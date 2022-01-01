@@ -1,9 +1,13 @@
 let now = new Date();
+console.log(now.getMonth());
 
-let day = days[now.getDay()];
+let day = now.getDay();
 let hour = now.getHours();
 let minute = now.getMinutes();
 Date.innerHTML = `${day} ${hour}:${minute}`;
+
+const dateText = document.querySelector(".now");
+dateText.innerHTML = now;
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
@@ -29,7 +33,7 @@ function displayForecast() {
       </div>
   `;
   });
-  let forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
@@ -52,6 +56,8 @@ function displayWeatherCondition(response) {
 }
 //Search for a city
 function searchCity(city) {
+  // city = "Boston"
+  city = 4930956;
   let apiKey = "3f2cf3b8e49f91e874d96ca20936b424";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?id=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(displayWeatherCondition);
@@ -73,17 +79,18 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 //Change to Celsius
-function showCelsius(event) {
+function displayCelsius(event) {
   event.preventDefault();
   let celsius = document.querySelector("#current-temp");
   celsius.innerHTML = "19";
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let displaycelsius = document.querySelector("#Celsius");
-displaycelsius.addEventListener("click", showCelsius);
+console.log(displaycelsius);
+displaycelsius.addEventListener("click", displayCelsius);
 
 //Change to Fahrenheit
-function showFahrenheit(event) {
+function displayFahrenheit(event) {
   event.preventDefault();
   let displayfahrenheit = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#current-temp");
@@ -93,16 +100,16 @@ function showFahrenheit(event) {
   fahrenheit.innerHTML = "66";
 }
 let displayfahrenheit = document.querySelector("#Fahrenheit");
-displayfahrenheit.addEventListener("click", showFahrenheit);
+displayfahrenheit.addEventListener("click", displayFahrenheit);
 
 let showLocationButton = document.querySelector("#show-location-button");
 showLocationButton.addEventListener("click", showLocation);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayfahrenheit);
+// let fahrenheitLink = document.querySelector("#Fahrenheit");
+// fahrenheitLink.addEventListener("click", displayfahrenheit);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displaycelsiusTemperature);
+// let celsiusLink = document.querySelector("#Celsius");
+// celsiusLink.addEventListener("click", displaycelsiusTemperature);
 
 searchCity("Boston");
 displayForecast();
