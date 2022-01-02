@@ -103,11 +103,5 @@ displayfahrenheit.addEventListener("click", displayFahrenheit);
 let showLocationButton = document.querySelector("#show-location-button");
 showLocationButton.addEventListener("click", showLocation);
 
-// let fahrenheitLink = document.querySelector("#Fahrenheit");
-// fahrenheitLink.addEventListener("click", displayfahrenheit);
-
-// let celsiusLink = document.querySelector("#Celsius");
-// celsiusLink.addEventListener("click", displaycelsiusTemperature);
-
 searchCity("Boston");
 displayForecast();
