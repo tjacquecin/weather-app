@@ -79,7 +79,6 @@ searchForm.addEventListener("submit", handleSubmit);
 function displayCelsius(event) {
   event.preventDefault();
   let celsius = document.querySelector("#current-temp");
-  celsius.innerHTML = "19";
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let displaycelsius = document.querySelector("#Celsius");
@@ -94,7 +93,6 @@ function displayFahrenheit(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
   let fahrenheit = document.querySelector("#current-temp");
-  fahrenheit.innerHTML = "66";
 }
 let displayfahrenheit = document.querySelector("#Fahrenheit");
 displayfahrenheit.addEventListener("click", displayFahrenheit);
