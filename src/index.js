@@ -12,7 +12,7 @@ dateText.innerHTML = now;
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
@@ -79,6 +79,8 @@ searchForm.addEventListener("submit", handleSubmit);
 function displayCelsius(event) {
   event.preventDefault();
   let celsius = document.querySelector("#current-temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let displaycelsius = document.querySelector("#Celsius");
