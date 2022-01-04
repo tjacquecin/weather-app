@@ -78,23 +78,18 @@ searchForm.addEventListener("submit", handleSubmit);
 //Change to Celsius
 function displayCelsius(event) {
   event.preventDefault();
-  let celsius = document.querySelector("#current-temp");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  displayfahrenheit.classList.remove("active");
+  displaycelsius.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-let displaycelsius = document.querySelector("#Celsius");
-console.log(displaycelsius);
-displaycelsius.addEventListener("click", displayCelsius);
 
 //Change to Fahrenheit
 function displayFahrenheit(event) {
   event.preventDefault();
-  let displayfahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-
-  let fahrenheit = document.querySelector("#current-temp");
 }
 let displayfahrenheit = document.querySelector("#Fahrenheit");
 displayfahrenheit.addEventListener("click", displayFahrenheit);
