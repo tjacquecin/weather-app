@@ -94,6 +94,9 @@ function displayFahrenheit(event) {
 let displayfahrenheit = document.querySelector("#Fahrenheit");
 displayfahrenheit.addEventListener("click", displayFahrenheit);
 
+let displaycelsius = document.querySelector("#Celsius");
+displaycelsius.addEventListener("click", displayCelsius);
+
 let showLocationButton = document.querySelector("#show-location-button");
 showLocationButton.addEventListener("click", showLocation);
 
