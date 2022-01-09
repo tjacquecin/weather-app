@@ -62,6 +62,13 @@ function searchCity(city) {
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(displayWeatherCondition);
 }
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "3f2cf3b8e49f91e874d96ca20936b424";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-text-input").value;
@@ -103,4 +110,3 @@ let showLocationButton = document.querySelector("#show-location-button");
 showLocationButton.addEventListener("click", showLocation);
 
 searchCity("Boston");
-displayForecast();
