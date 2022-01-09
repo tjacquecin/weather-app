@@ -1,5 +1,6 @@
 body {
   font-family: arial, sans-serif;
+  background-image: linear-gradient(to right, #ffffff, rgb(170, 201, 247));
 }
 
 h1 {
